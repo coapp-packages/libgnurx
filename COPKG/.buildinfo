@@ -1,0 +1,29 @@
+#product-info  {
+    product-name: "libgnurx";
+    version: "2.5.1";
+    original-source-location: "http://sourceforge.net/projects/mingw/files/UserContributed/regex/mingw-regex-2.5.1/mingw-libgnurx-2.5.1-src.tar.gz/download";
+    original-source-website: "http://sourceforge.net/projects/mingw/files/UserContributed/regex/mingw-regex-2.5.1/";
+    license: "LGPL 2.1";
+    packager: "Vincent Povirk <madewokherd@gmail.com>";
+}
+
+
+x86 {
+    compiler: mingw;
+    platform: x86;
+
+    targets: {
+        "libgnurx-0.dll",
+        "libgnurx.dll.a",
+        "libregex.a"
+    };
+    
+    build-command:@"
+        sh configure
+        make libregex.a
+    ";
+    
+    clean-command:@"
+        make distclean
+    ";
+};
